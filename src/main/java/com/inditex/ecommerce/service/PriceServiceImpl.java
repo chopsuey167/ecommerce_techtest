@@ -8,8 +8,6 @@ import com.inditex.ecommerce.model.Price;
 import com.inditex.ecommerce.repository.PriceRepository;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,16 +23,14 @@ public class PriceServiceImpl implements PriceService {
   private final PriceDtoMapper priceDtoMapper;
 
   @Override
-  public List<PriceFilterResponse> findPricesByFilters(PriceFilterRequest priceFilterRequest) {
+  public PriceFilterResponse findPricesByFilters(PriceFilterRequest priceFilterRequest) {
 
-    List<Price> priceByFilter = priceRepository.findPriceByFilter(
+    Price priceByFilter = priceRepository.findPriceByFilter(
         priceFilterRequest.getBrandId(),
         priceFilterRequest.getProductId(),
         LocalDateTime.parse(priceFilterRequest.getApplicationDate(), formatter));
 
-    return priceByFilter.stream()
-        .map(priceDtoMapper::toPriceFilterResponse)
-        .collect(Collectors.toList());
+    return priceDtoMapper.toPriceFilterResponse(priceByFilter);
   }
 
 

@@ -3,7 +3,6 @@ package com.inditex.ecommerce.controller;
 import com.inditex.ecommerce.dto.PriceFilterRequest;
 import com.inditex.ecommerce.dto.PriceFilterResponse;
 import com.inditex.ecommerce.service.PriceService;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,11 +23,13 @@ public class PriceController {
   @GetMapping
   public @ResponseBody ResponseEntity<?> getPriceByFilters(@RequestBody PriceFilterRequest priceFilterRequest) {
 
-    List<PriceFilterResponse> listPrice = priceService.findPricesByFilters(priceFilterRequest);
-    if (listPrice.isEmpty()) {
+    PriceFilterResponse filteredPrice = priceService.findPricesByFilters(priceFilterRequest);
+
+    if (filteredPrice == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    return new ResponseEntity<>(listPrice, HttpStatus.OK);
+    
+    return new ResponseEntity<>(filteredPrice, HttpStatus.OK);
   }
 
 }

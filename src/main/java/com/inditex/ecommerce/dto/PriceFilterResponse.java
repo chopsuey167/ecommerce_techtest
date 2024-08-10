@@ -13,7 +13,9 @@ import lombok.Data;
 @Data
 public class PriceFilterResponse {
 
+  private long productId;
   private long brandId;
+  private long priceListId;
   @JsonSerialize(using = LocalDateTimeSerializer.class)
   @JsonDeserialize(using = LocalDateTimeDeserializer.class)
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
@@ -22,6 +24,5 @@ public class PriceFilterResponse {
   @JsonDeserialize(using = LocalDateTimeDeserializer.class)
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
   private LocalDateTime endDate;
-  private long productId;
   private Double price;
 }

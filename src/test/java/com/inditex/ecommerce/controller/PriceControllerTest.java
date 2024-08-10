@@ -38,10 +38,11 @@ class PriceControllerTest {
     // Given
     PriceFilterRequest priceFilterRequest = new PriceFilterRequest("2020-06-14 10:00:00", 35455L, 1L);
     PriceFilterResponse filteredPrice =
-        new PriceFilterResponse(1L,
+        new PriceFilterResponse(35455,
+            1L,
+            1L,
             LocalDateTime.parse("2020-06-14 00:00:00", formatter),
             LocalDateTime.parse("2020-12-31 23:59:59", formatter),
-            35455,
             35.50);
 
     //When
@@ -67,10 +68,12 @@ class PriceControllerTest {
     // Given
     PriceFilterRequest priceFilterRequest = new PriceFilterRequest("2020-06-14 16:00:00", 35455L, 1L);
     PriceFilterResponse filteredPrice =
-        new PriceFilterResponse(1L,
+        new PriceFilterResponse(35455,
+            1L,
+            2L,
             LocalDateTime.parse("2020-06-14 15:00:00", formatter),
             LocalDateTime.parse("2020-06-14 18:30:00", formatter),
-            35455, 25.45);
+            25.45);
 
     //When
 
@@ -95,10 +98,12 @@ class PriceControllerTest {
     // Given
     PriceFilterRequest priceFilterRequest = new PriceFilterRequest("2020-06-14 21:00:00", 35455L, 1L);
     PriceFilterResponse filteredPrice =
-        new PriceFilterResponse(1L,
+        new PriceFilterResponse(35455,
+            1L,
+            1L,
             LocalDateTime.parse("2020-06-14 00:00:00", formatter),
             LocalDateTime.parse("2020-12-31 23:59:59", formatter),
-            35455, 35.50);
+            35.50);
 
     //When
 
@@ -123,10 +128,12 @@ class PriceControllerTest {
     // Given
     PriceFilterRequest priceFilterRequest = new PriceFilterRequest("2020-06-15 10:00:00", 35455L, 1L);
     PriceFilterResponse filteredPrice =
-        new PriceFilterResponse(1L,
+        new PriceFilterResponse(35455,
+            1L,
+            3L,
             LocalDateTime.parse("2020-06-15 00:00:00", formatter),
             LocalDateTime.parse("2020-06-15 11:00:00", formatter),
-            35455, 30.5);
+            30.5);
 
     //When
 
@@ -151,10 +158,12 @@ class PriceControllerTest {
     // Given
     PriceFilterRequest priceFilterRequest = new PriceFilterRequest("2020-06-16 21:00:00", 35455L, 1L);
     PriceFilterResponse filteredPrice =
-        new PriceFilterResponse(1L,
+        new PriceFilterResponse(35455,
+            1L,
+            4L,
             LocalDateTime.parse("2020-06-15 16:00:00", formatter),
             LocalDateTime.parse("2020-12-31 23:59:59", formatter),
-            35455, 38.95);
+            38.95);
 
     //When
 

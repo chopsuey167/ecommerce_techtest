@@ -20,4 +20,5 @@ spring:
     console:
       enabled: true
       path: /h2-ui
-
+  jackson:
+    property-naming-strategy: SNAKE_CASE

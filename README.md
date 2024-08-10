@@ -48,3 +48,27 @@ Se valorará:
 * Diseño y construcción del servicio.
 * Calidad de Código.
 * Resultados correctos en los test
+
+# Build & run
+
+1. Run project:
+    ```
+    ./mvnw spring-boot:run
+    ```
+2. Access to h2-ui
+   ```
+   localhost:8080/h2-ui
+   
+   Use the following jdbc string (no required password):
+   jdbc:h2:mem:ecommercedb
+    ```
+3. Postman curl:
+   ```
+   curl --location --request GET 'localhost:8080/api/v1/prices' \
+   --header 'Content-Type: application/json' \
+   --data '{
+   "application_date": "2021-06-14 18:00:00",
+   "product_id": "35455",
+   "brand_id": "1"
+   }'
+   ```

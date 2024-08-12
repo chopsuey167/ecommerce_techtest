@@ -26,10 +26,6 @@ public class PriceController {
 
     PriceFilterResponse filteredPrice = priceService.findPricesByFilters(priceFilterRequest);
 
-    if (filteredPrice == null) {
-      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
     return new ResponseEntity<>(filteredPrice, HttpStatus.OK);
   }
 

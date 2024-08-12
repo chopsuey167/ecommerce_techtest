@@ -2,6 +2,7 @@ package com.inditex.ecommerce.infrastructure.adapter.repository;
 
 import com.inditex.ecommerce.infrastructure.adapter.entity.PriceEntity;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -14,7 +15,7 @@ public interface PriceRepository extends JpaRepository<PriceEntity, Long> {
       + "p.productId = :productid and "
       + "p.startDate<= :applicationdate and "
       + "p.endDate>= :applicationdate order by p.priority desc limit 1")
-  PriceEntity findPriceByFilter(
+  Optional<PriceEntity> findPriceByFilter(
       @Param("brandid") Long brandId,
       @Param("productid") Long productId,
       @Param("applicationdate") LocalDateTime applicationDate);

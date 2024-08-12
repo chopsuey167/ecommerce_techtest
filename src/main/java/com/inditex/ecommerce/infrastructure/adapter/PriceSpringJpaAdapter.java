@@ -3,6 +3,7 @@ package com.inditex.ecommerce.infrastructure.adapter;
 import com.inditex.ecommerce.domain.model.Price;
 import com.inditex.ecommerce.domain.port.PricePersistencePort;
 import com.inditex.ecommerce.infrastructure.adapter.entity.PriceEntity;
+import com.inditex.ecommerce.infrastructure.adapter.exception.PriceNotFoundException;
 import com.inditex.ecommerce.infrastructure.adapter.mapper.PriceDBMapper;
 import com.inditex.ecommerce.infrastructure.adapter.repository.PriceRepository;
 import java.time.LocalDateTime;
@@ -25,7 +26,7 @@ public class PriceSpringJpaAdapter implements PricePersistencePort {
     PriceEntity priceByFilter = priceRepository.findPriceByFilter(
         brandId,
         productId,
-        LocalDateTime.parse(applicationDate, formatter));
+        LocalDateTime.parse(applicationDate, formatter)).orElseThrow(PriceNotFoundException::new);
     return priceDBMapper.toPrice(priceByFilter);
   }
 }

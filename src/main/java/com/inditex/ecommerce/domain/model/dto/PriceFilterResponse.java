@@ -1,4 +1,4 @@
-package com.inditex.ecommerce.dto;
+package com.inditex.ecommerce.domain.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

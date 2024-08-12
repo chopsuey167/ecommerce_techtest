@@ -1,4 +1,4 @@
-package com.inditex.ecommerce.controller;
+package com.inditex.ecommerce.infrastructure.rest.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -6,8 +6,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.inditex.ecommerce.dto.PriceFilterRequest;
-import com.inditex.ecommerce.dto.PriceFilterResponse;
+import com.inditex.ecommerce.domain.model.dto.PriceFilterRequest;
+import com.inditex.ecommerce.domain.model.dto.PriceFilterResponse;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.junit.jupiter.api.Test;
@@ -202,4 +202,5 @@ class PriceControllerTest {
         .andExpect(status().isNotFound());
 
   }
+
 }

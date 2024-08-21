@@ -11,8 +11,8 @@
   <groupId>com.inditex</groupId>
   <artifactId>ecommerce</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>inditex_between_techtest</name>
-  <description>inditex_between_techtest</description>
+  <name>inditex_techtest</name>
+  <description>inditex_techtest</description>
   <properties>
     <java.version>17</java.version>
     <mapstruct.version>1.5.2.Final</mapstruct.version>
